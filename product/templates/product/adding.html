@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+</head>
+<body>
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for f in form %}
+    {{ f.label_tag }}
+    {{ f }}
+        <br>
+        <br>
+    {% endfor %}
+    <button type="submit"> Send </button>
+</form>
+</body>
+</html>

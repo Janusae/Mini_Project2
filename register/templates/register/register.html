@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+
+</head>
+<body>
+<h1 style="text-align: center">Register</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.username.label_tag }}
+    {{ form.username }}
+    <br>
+    <br>
+    {{ form.email.label_tag }}
+    {{ form.email }}
+    <br>
+    <br>
+    {{ form.password.label_tag }}
+    {{ form.password }}
+    <br>
+    <br>
+    {{ form.confirm_password.label_tag }}
+    {{ form.confirm_password }}
+    <br>
+    <br>
+
+<button type="submit"> Send </button>
+</form>
+</body>
+</html>

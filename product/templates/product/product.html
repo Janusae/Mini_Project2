@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "product/01.css" %}">
+</head>
+<body>
+<!--Changing the number in the column_# class changes the number of columns-->
+<body>
+<a href="register"><header>Register</header></a>
+<a href="{% url "add_product" %}"><header>Add Product</header></a>
+	<div id="wrap">
+	<div id="columns" class="columns_4">
+
+
+{% for d in data %}
+  <figure>
+  <img src="{{ d.image.url }}">
+	<figcaption>{{ d.name }}</figcaption>
+    <span class="price">${{ d.price }}</span>
+    <a class="button" href="{{ d.id }}">Buy Now</a>
+	</figure>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}"><h5>Previous Page</h5></a>
+{% endif %}
+{% for page in paginator %}
+<a href="?page={{ page.number }}" ><h5>{{ page.number }}</h5></a>
+{% endfor %}
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number}}"><h5>Next Page</h5></a>
+{% endif %}
+
+</div>
+
+</body>
+</body>
+</html>
